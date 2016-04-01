@@ -5,7 +5,7 @@ RandomWalkOnSphere es un proyecto de Unity que muestra justo lo que dice su nomb
 A parte de la generación de este camino se adorna la escena con una serie de efectos especiales basados en partículas y algún shader.
 
 ##El camino aleatorio
-Como decía arriba, en este proyecto se genera un camino aleatorio sobre una esfera. Esto se hace en el script [DrawLineMesh.cs](/Assets/Scripts/DrawLineMesh.cs). Las partes importantes de este script son
+Como decía arriba, en este proyecto se genera un camino aleatorio sobre una esfera. Esto se hace en el script [DrawLineMesh.cs](/Assets/Scripts/DrawLineMesh.cs). Las partes importantes de este script son,
 
 `Inicializamos el primer vertice`
 ```csharp
@@ -26,6 +26,10 @@ for(int i=1;i<N;i++){
 	uv[i] = new Vector2(i/(N-1f),0f);
 }
 ```
+`Definimos la topologia de la malla`
+```csharp
+	mesh.SetIndices(indv,MeshTopology.LineStrip,0);
+```
 
-
+La idea básica es fijar una posición inicial sobre la esfera, y a partir de ahí ir definiendo los siguientes vértices, a partir de los anteriores mediante pequeños movimientos.
 
