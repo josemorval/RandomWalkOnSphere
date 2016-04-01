@@ -59,5 +59,8 @@ float4 frag(VertexOutput i) : COLOR {
 }
 ```
 
-Básicamente, este shader usa la información de las coordenadas `UV` de la malla (definido en `DrawLineMesh.cs` en la instrucción `uv[i] = new Vector2(i/(N-1f),0f)`) para asignar un color a ese *fragmento* de malla. Más específicamente, interpolamos entre dos colores usando el valor `x` del `UV`.
+Básicamente, este shader usa la información de las coordenadas `UV` de la malla (definido en `DrawLineMesh.cs` en la instrucción `uv[i] = new Vector2(i/(N-1f),0f)`) para asignar un color a ese *fragmento* de malla. Más específicamente, interpolamos entre dos colores usando el valor `x` del `UV.
 
+<div align="center">
+	<img src="https://github.com/josemorval/RandomWalkOnSphere/blob/master/img/img03.gif" width="400">
+</div>
