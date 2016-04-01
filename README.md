@@ -5,16 +5,14 @@ RandomWalkOnSphere es un proyecto de Unity que muestra justo lo que dice su nomb
 A parte de la generación de este camino se adorna la escena con una serie de efectos especiales basados en partículas y algún shader.
 
 ##El camino aleatorio `DrawLineMesh.cs`
-Como decía arriba, en este proyecto se genera un camino aleatorio sobre una esfera. Esto se hace en el script `[DrawLineMesh.cs](/Assets/Scripts/DrawLineMesh.cs)`. Las partes importantes de este script son,
+Como decía arriba, en este proyecto se genera un camino aleatorio sobre una esfera. Esto se hace en el script [`DrawLineMesh.cs`](/Assets/Scripts/DrawLineMesh.cs). Las partes importantes de este script son,
 
-`c1`
 ```csharp
 v[0] = radius*Random.onUnitSphere;
 indv[0] = 0;
 uv[0] = new Vector2(0f,0f);
 Vector3 vel = Vector3.zero;
 ```
-`c2`
 ```csharp
 for(int i=1;i<N;i++){
 	vel+= delta0*Random.insideUnitSphere;
@@ -26,10 +24,9 @@ for(int i=1;i<N;i++){
 	uv[i] = new Vector2(i/(N-1f),0f);
 }
 ```
-`c3`
 ```csharp
 mesh.SetIndices(indv,MeshTopology.LineStrip,0);
 ```
 
-La idea básica es fijar una posición inicial sobre la esfera `c1`, y a partir de ahí ir definiendo los siguientes vértices `c2`, a partir de los anteriores, mediante pequeños movimientos. Por último, establecemos la topología de la malla `c3`, para que la GPU sepa que hacer con los índices de los vértices que hemos definido 
+La idea básica es fijar una posición inicial sobre la esfera, y a partir de ahí ir definiendo los siguientes vértices, a partir de los anteriores, mediante pequeños movimientos. Por último, establecemos la topología de la malla para que la GPU sepa que hacer con los índices de los vértices que hemos definido 
 
