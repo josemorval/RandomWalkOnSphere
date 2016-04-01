@@ -48,7 +48,6 @@ float BrightnessNearDrawer( float u , float appear ){
 ```
 ```c
 float4 frag(VertexOutput i) : COLOR {
-
 	float4 colorLerpMesh = lerp(_col1,_col2,i.uv0.r);
 	float brightnessNearDrawer = BrightnessNearDrawer( i.uv0.r , _appear );
 	float4 blackColor = float4(0,0,0,0);
@@ -59,4 +58,6 @@ float4 frag(VertexOutput i) : COLOR {
 	return finalRGBA;
 }
 ```
+
+Básicamente, este shader usa la información de las coordenadas `UV` de la malla (definido en `DrawLineMesh.cs` en la instrucción `uv[i] = new Vector2(i/(N-1f),0f)`) para asignar un color a ese *fragmento* de malla. Más específicamente, interpolamos entre dos colores usando el valor `x` del `UV`.
 
