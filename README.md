@@ -30,3 +30,9 @@ mesh.SetIndices(indv,MeshTopology.LineStrip,0);
 
 La idea básica es fijar una posición inicial sobre la esfera, y a partir de ahí ir definiendo los siguientes vértices, a partir de los anteriores, mediante pequeños movimientos. Por último, establecemos la topología de la malla para que la GPU sepa que hacer con los índices de los vértices que hemos definido 
 
+![img01](/img/img01.png)
+
+##Renderizando el camino `LineDrawerShader.shader`
+Una vez se ha generado el camino hay que pintarlo. Para esto se define un material con un
+
+
