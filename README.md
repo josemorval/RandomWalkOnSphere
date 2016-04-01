@@ -9,14 +9,15 @@ Como decía arriba, en este proyecto se genera un camino aleatorio sobre una esf
 
 Las partes importantes de este script son
 
+`DrawLineMesh.cs'
 ```csharp
-//Inicializamos el primer vertice
 v[0] = radius*Random.onUnitSphere;
 indv[0] = 0;
 uv[0] = new Vector2(0f,0f);
 Vector3 vel = Vector3.zero;
+```
 
-//El resto se hace a partir del anterior
+```csharp
 for(int i=1;i<N;i++){
 	vel+= delta0*Random.insideUnitSphere;
 	v[i] = v[i-1] + delta1*vel + delta2*Random.insideUnitSphere;
