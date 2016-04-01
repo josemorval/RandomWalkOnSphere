@@ -37,6 +37,26 @@ La idea básica es fijar una posición inicial sobre la esfera, y a partir de ah
 
 
 ##Renderizando el camino `LineDrawerShader.shader`
-Una vez se ha generado el camino hay que pintarlo. Para esto se define un material con un
+Una vez se ha generado el camino hay que pintarlo. Para esto creo un material, que tiene asociado el shader [`LineDrawerShader.shader`](/Assets/Material/LineDrawerShader.shader).
 
+Este shader tiene dos partes importantes,
+```c
+float BrightnessNearDrawer( float u , float appear ){
+	float f = u-appear;
+	return 1.0+4.0*exp(-10000.0*f*f);
+}
+```
+```c
+float4 frag(VertexOutput i) : COLOR {
+
+	float4 colorLerpMesh = lerp(_col1,_col2,i.uv0.r);
+	float brightnessNearDrawer = BrightnessNearDrawer( i.uv0.r , _appear );
+	float4 blackColor = float4(0,0,0,0);
+
+	float3 finalColor = (colorLerpMesh*step(i.uv0.r,_appear)+blackColor*step(_appear,i.uv0.r)).rgb;
+	finalColor *= brightnessNearDrawer;
+	float4 finalRGBA = fixed4(finalColor,1);
+	return finalRGBA;
+}
+```
 
