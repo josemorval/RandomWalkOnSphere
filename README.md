@@ -30,9 +30,11 @@ mesh.SetIndices(indv,MeshTopology.LineStrip,0);
 
 La idea básica es fijar una posición inicial sobre la esfera, y a partir de ahí ir definiendo los siguientes vértices, a partir de los anteriores, mediante pequeños movimientos. Por último, establecemos la topología de la malla para que la GPU sepa que hacer con los índices de los vértices que hemos definido 
 
-<img src="https://github.com/josemorval/RandomWalkOnSphere/blob/master/img/img01.png" width="500">
+<div align="center">
+	<img src="https://github.com/josemorval/RandomWalkOnSphere/blob/master/img/img01.png" width="400">
+	<img src="https://github.com/josemorval/RandomWalkOnSphere/blob/master/img/img02.png" width="400">
+</div>
 
-<img src="https://github.com/josemorval/RandomWalkOnSphere/blob/master/img/img02.png" width="500">
 
 ##Renderizando el camino `LineDrawerShader.shader`
 Una vez se ha generado el camino hay que pintarlo. Para esto se define un material con un
