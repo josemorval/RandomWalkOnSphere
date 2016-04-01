@@ -28,7 +28,7 @@ for(int i=1;i<N;i++){
 ```
 `Definimos la topologia de la malla`
 ```csharp
-	mesh.SetIndices(indv,MeshTopology.LineStrip,0);
+mesh.SetIndices(indv,MeshTopology.LineStrip,0);
 ```
 
 La idea básica es fijar una posición inicial sobre la esfera, y a partir de ahí ir definiendo los siguientes vértices, a partir de los anteriores mediante pequeños movimientos.
