@@ -10,7 +10,6 @@ public class DrawLineMesh : MonoBehaviour {
 	public float delta2;
 	Mesh mesh;
 
-	// Use this for initialization
 	void Start () {
 		mesh = new Mesh();	
 
